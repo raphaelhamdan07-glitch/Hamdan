@@ -46,8 +46,9 @@ Planilha `Controle_Contas`, aba `Vencimentos!A5:I` (somente leitura). Colunas: C
    - Com 2 ou mais contas no mesmo dia de aviso, some os valores de referência: "Total para transferir hoje: R$ X".
    - Forma de pagamento diferente de Transferência: mostre-a no lugar de "Transferir".
 4. Se alguma conta está na janela, a síntese começa por ela ("Hoje: transferir Internet, Academia e Água, ~R$ X.") e a linha final de resumo (notificação) também.
-5. Sem contas na janela, a seção não aparece.
-6. Na memória (Passo 5), inclua as contas listadas na coluna Alertas, com o prefixo `Conta:`.
+5. **Visão da semana:** se nos próximos 3 dias houver outro aviso além dos de hoje, acrescente "Próximos 3 dias: <contas> · total ~R$ X", para o Raphael transferir de uma vez se preferir.
+6. Sem contas na janela, a seção não aparece.
+7. Na memória (Passo 5), inclua as contas listadas na coluna Alertas, com o prefixo `Conta:`.
 
 ## Passo 2 · Notícias
 Objetivo: o Raphael lê em 3 minutos e sabe o que mudou no mundo desde ontem.
