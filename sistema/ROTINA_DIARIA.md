@@ -90,7 +90,7 @@ Planilha `Controle_Contas`, aba `DataBase`. Somente leitura.
    - Meses sem receita lançada (anteriores a out.-26) ficam fora das médias de poupança.
 
 ## Passo 4 · Investimentos
-Planilha `Investimentos`. Somente leitura. As regras de decisão do comitê estão em `sistema/investimentos.md`.
+Planilha `Investimentos`. Somente leitura. Siga `sistema/investimentos.md`: ele define o que o briefing aplica do comitê (`sistema/comite_investimentos.md`, seção 0.1 e Agente 1 resumido), a régua de status e o lembrete do comitê do dia 1 ao 5. Todo número da carteira cita a aba e a data dos preços.
 
 1. Leia `Posição!A4:I14`, `Alocação!A4:F22`, `Parâmetros!A1:C27`, `Acompanhamento!A4:I300`.
 2. Reporte:

@@ -5,9 +5,9 @@ Sistema pessoal de bolso. Todo dia às 7:00 (Lisboa), uma tarefa agendada do Cla
 ## Frentes
 | Frente | Fonte | O que o briefing traz |
 |---|---|---|
-| ✅ Estudos e tarefas | Planilha `Hamdan_OS_Rotina` | Lista do dia, sequências, prazos vencidos |
+| ✅ Agenda e tarefas | Google Calendar + planilha `Hamdan_OS_Rotina` | Compromissos e Google Tasks do dia, estudos recorrentes, sequências |
 | 🌍 Notícias | Web + Google News | Geopolítica, economia, tecnologia, Brasil/Portugal, sem repetir |
-| 💰 Orçamento | Planilha `Controle_Contas` | Mês vs. média de 3 meses, top gastos, alertas |
+| 💰 Orçamento | Planilha `Controle_Contas` (DataBase + Receitas) | Gasto vs. média de 3 meses, taxa de poupança, alertas |
 | 📈 Investimentos | Planilha `Investimentos` | Patrimônio, alocação vs. alvo, plano do mês, higiene |
 
 ## Como funciona
@@ -22,6 +22,12 @@ Sistema pessoal de bolso. Todo dia às 7:00 (Lisboa), uma tarefa agendada do Cla
      └─► Gmail (HTML) + push no celular
 ```
 
+## Dashboard
+[Hamdan OS no claude.ai](https://claude.ai/artifact/T8312Sfqrh1ysgJevGr3zx). Lê ao vivo as planilhas e o Google Calendar com a sua conta toda vez que você abre: carteira, alocação vs. alvo, plano do mês, gastos e poupança por mês, gastos por pilar, agenda dos próximos 7 dias e rotina.
+
+## Comitê mensal
+Roda numa sessão interativa: peça "rodar o comitê de <mês>". Segue `sistema/comite_investimentos.md` (Agentes A1 a A4). O briefing diário só lembra e mostra a aritmética da planilha.
+
 ## Seu uso diário
 1. Abra o e-mail das 7:00. A síntese no topo resume o dia.
 2. Ao concluir uma tarefa, marque **Feito?** na planilha Rotina (funciona no app do Sheets no celular).
@@ -30,7 +36,8 @@ Sistema pessoal de bolso. Todo dia às 7:00 (Lisboa), uma tarefa agendada do Cla
 ## Arquivos
 - `sistema/ROTINA_DIARIA.md`: o roteiro que a tarefa das 7:00 executa.
 - `sistema/brevidade.md`: regras de escrita.
-- `sistema/investimentos.md`: mandato e limites do que o briefing pode recomendar.
+- `sistema/investimentos.md`: o que o briefing aplica do comitê e o que não pode fazer.
+- `sistema/comite_investimentos.md`: o comitê mensal (A1 a A4), como você escreveu.
 - `sistema/fontes.md`: IDs e estrutura das planilhas.
 - `templates/email.html`: modelo do e-mail.
 - `briefings/`: histórico, um arquivo por dia.
