@@ -1,0 +1,55 @@
+<!-- Modelo do e-mail diário. Substitua os blocos {{...}}. Estilos inline porque o Gmail ignora <style> em parte dos clientes. -->
+<div style="max-width:640px;margin:0 auto;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#1f2328;">
+
+  <div style="padding:16px 0 8px;border-bottom:2px solid #1f2328;">
+    <div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#59636e;">Hamdan OS · {{DATA_EXTENSO}}</div>
+    <div style="font-size:22px;font-weight:700;margin-top:4px;">Briefing do dia</div>
+  </div>
+
+  <!-- Síntese executiva -->
+  <div style="background:#f6f8fa;border-left:4px solid #0969da;padding:12px 14px;margin:16px 0;">
+    {{SINTESE}}
+  </div>
+
+  <!-- Cada seção usa este bloco -->
+  <h2 style="font-size:17px;margin:24px 0 8px;">✅ Hoje</h2>
+  {{TAREFAS}}
+  <!-- Tarefa: <div style="padding:4px 0;">☐ <b>Tarefa</b> <span style="color:#59636e;">· Frente · 🔥 7 dias</span></div> -->
+
+  <h2 style="font-size:17px;margin:24px 0 8px;">🌍 Geopolítica</h2>
+  {{GEOPOLITICA}}
+
+  <h2 style="font-size:17px;margin:24px 0 8px;">💹 Economia e mercados</h2>
+  {{ECONOMIA}}
+
+  <h2 style="font-size:17px;margin:24px 0 8px;">🧠 Tecnologia e avanços</h2>
+  {{TECNOLOGIA}}
+
+  <h2 style="font-size:17px;margin:24px 0 8px;">🇧🇷🇵🇹 Brasil e Portugal</h2>
+  {{BR_PT}}
+  <!-- Notícia:
+  <div style="margin:0 0 14px;">
+    <div style="font-weight:700;">Manchete</div>
+    <div><b>Por que importa:</b> frase.</div>
+    <ul style="margin:4px 0 0 18px;padding:0;"><li>Detalhe</li></ul>
+    <a href="URL" style="font-size:13px;color:#0969da;">Fonte</a>
+  </div> -->
+
+  <div style="margin:16px 0;padding:10px 14px;border:1px solid #d0d7de;border-radius:6px;">
+    <b>Número do dia:</b> {{NUMERO_DO_DIA}}
+  </div>
+
+  <h2 style="font-size:17px;margin:24px 0 8px;">💰 Orçamento · {{MES}}</h2>
+  {{ORCAMENTO}}
+  <!-- Tabela: <table style="border-collapse:collapse;width:100%;font-size:14px;"><tr><td style="padding:4px 0;">Fixas</td><td style="text-align:right;">R$ x</td><td style="text-align:right;color:#59636e;">+3% vs. média</td></tr></table> -->
+
+  <h2 style="font-size:17px;margin:24px 0 8px;">📈 Carteira</h2>
+  {{CARTEIRA}}
+
+  <div style="margin-top:28px;padding-top:10px;border-top:1px solid #d0d7de;font-size:12px;color:#59636e;">
+    {{RODAPE}}<br>
+    <a href="https://docs.google.com/spreadsheets/d/1H5s0abjd0kdII-4LKTSiCK0bksdeF9K8kUv5zbiqWjE/edit" style="color:#59636e;">Rotina</a> ·
+    <a href="https://docs.google.com/spreadsheets/d/1iCyD4qZja2Qy8WZO57WtNIfpELBEmipv4OH7fZvxdMQ/edit" style="color:#59636e;">Controle_Contas</a> ·
+    <a href="https://docs.google.com/spreadsheets/d/1fzQ7p6kzo2sZbMywn93TjHM0fHmyXfUk_1PNW_BgFuQ/edit" style="color:#59636e;">Investimentos</a>
+  </div>
+</div>
