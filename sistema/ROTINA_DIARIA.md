@@ -8,48 +8,27 @@ IDs e estrutura das planilhas: `sistema/fontes.md`. Regras de escrita: `sistema/
 
 ---
 
-## Passo 0 · Contexto
+## Passo 0 · Contexto e memória
 1. Data de hoje em Europe/Lisbon (`TZ=Europe/Lisbon date +%F`) e dia da semana.
-2. Leia os 3 briefings mais recentes em `briefings/` (`ls briefings/*.md | sort | tail -3`). Eles são a memória do sistema: o que já foi noticiado, os números de ontem, os alertas já dados.
-3. Se já existe `briefings/<hoje>.md`, a rotina já rodou hoje. Pare sem enviar nada.
+2. **Memória principal:** planilha `Hamdan_OS_Memoria`, aba `Briefings` (ID em `sistema/fontes.md`). Leia as 3 últimas linhas com dados: síntese, manchetes, alertas, patrimônio, gasto e receita dos dias anteriores. É assim que o sistema sabe o que já foi dito.
+3. **Memória secundária:** os arquivos em `briefings/` do repositório. Use só se a planilha estiver indisponível.
+4. Se a coluna Data da aba `Briefings` já tem a data de hoje, a rotina já rodou. Pare sem enviar nada.
 
 ## Formato do dia
 - **Segunda a sexta:** briefing completo (todos os passos).
 - **Sábado e domingo:** briefing curto. Rode os Passos 1 e 2 e pule os Passos 3 e 4 (orçamento e carteira não mudam no fim de semana). Notícias: no máximo 1 item por frente, sem Número do dia. A síntese tem 1 ou 2 linhas. Exceção: se houver um alerta novo de orçamento ou carteira que ainda não saiu em nenhum briefing, inclua só esse alerta, numa linha.
 
-## Passo 1 · Agenda e tarefas (fazer primeiro, porque escreve na planilha)
-Tarefas aparecem todos os dias, inclusive no fim de semana. Há duas fontes, e a seção "✅ Hoje" junta as duas.
+## Passo 1 · Agenda e tarefas (Google Calendar)
+Aparece todos os dias, inclusive no fim de semana. A única fonte de tarefas é o Calendar: o Raphael organiza a rotina lá (eventos e Google Tasks com horário).
 
-### 1a · Google Calendar (agenda e Google Tasks)
 1. Liste os eventos de hoje (00:00 a 23:59, Europe/Lisbon) no calendário `raphaelhamdan07@gmail.com` com `list_events`, passando `eventType` = DEFAULT, FOCUS_TIME, FROM_GMAIL e OUT_OF_OFFICE, e `orderBy` = startTime. Liste também o calendário `Feriados no Brasil` (pt-br) para o dia.
 2. Classifique:
    - **Tarefa do Google Tasks:** a descrição contém `tasks.google.com/task/`. Mostre como tarefa, com o horário.
    - **Compromisso:** os demais eventos. Mostre horário e título; se tiver link de reunião, inclua o link.
-3. Limitação conhecida: o Calendar só mostra tarefas do Google Tasks que têm data e horário, e não informa se foram concluídas. Tarefa de um dia que já passou não é listada de novo, então não há repetição. Se um título indicar prazo ("até sexta"), mantenha o texto como está.
-4. Se não houver nada no Calendar, escreva "Agenda livre".
-
-### 1b · Planilha Rotina (estudos e hábitos recorrentes)
-Planilha `Hamdan_OS_Rotina`, aba `Tarefas`, linhas 5 em diante.
-
-1. **Registrar conclusões de ontem.** Para cada linha com `Feito?` = TRUE:
-   - Acrescente uma linha em `Log`: data de ontem (dd/mm/aaaa), ID, Tarefa, Frente, `Sistema 07:00`.
-   - `Última conclusão` = data de ontem.
-   - `Sequência (dias)`: se a frequência é Diária ou Dias úteis e a conclusão anterior foi no último dia devido, some 1; senão, 1.
-   - Frequência `Única`: `Status` = `Concluída`.
-   - Recorrentes: `Feito?` = FALSE.
-2. **Quebra de sequência.** Tarefa Diária ou Dias úteis que era devida ontem e não foi marcada: `Sequência (dias)` = 0. Mencione no briefing só se a sequência quebrada era de 3 dias ou mais.
-3. **Lista de hoje.** Entram só as linhas com `Status` = Ativa e devidas hoje:
-   - Diária: sempre.
-   - Dias úteis: segunda a sexta.
-   - Semanal: se a abreviação de hoje (seg, ter, qua, qui, sex, sáb, dom) está em `Dias da semana`.
-   - Única: se não está concluída. Marque ⚠️ se o prazo já passou e 🔴 se vence hoje.
-4. Ordene por Prioridade (Alta, Média, Baixa) e depois por Frente.
-5. Ignore a linha de exemplo (Observação começa com "Linha de exemplo"), mas avise no rodapé enquanto ela existir.
-
-### 1c · Montar a seção "✅ Hoje"
-Ordem: compromissos do Calendar por horário → tarefas do Google Tasks por horário → itens da Rotina por prioridade. Feriado brasileiro do dia vai numa linha no topo.
-
-Escreva na planilha com `update_values` (valores) e `append_values` (Log). Nunca apague linhas.
+3. Ordem da seção "✅ Hoje": feriado (se houver) numa linha → compromissos e tarefas por horário.
+4. **Amanhã cedo:** se houver evento antes das 10:00 de amanhã, acrescente uma linha "Amanhã cedo: <hora> <título>".
+5. Limitação conhecida: o Calendar só mostra tarefas do Google Tasks com data e horário, e não diz se foram concluídas. Como só o dia de hoje é listado, nada se repete.
+6. Sem eventos: escreva "Agenda livre".
 
 ## Passo 2 · Notícias
 Objetivo: o Raphael lê em 3 minutos e sabe o que mudou no mundo desde ontem.
@@ -108,17 +87,19 @@ Planilha `Investimentos`. Somente leitura. Siga `sistema/investimentos.md`: ele 
 
 ## Passo 5 · Montar e entregar
 1. **Síntese executiva:** 2 ou 3 linhas no topo, com o que de mais importante aconteceu hoje nas 4 frentes. É a única parte que precisa ser lida.
-2. Ordem do e-mail: Síntese → ✅ Hoje (tarefas) → 🌍💹🧠🇧🇷🇵🇹 Notícias → 💰 Orçamento → 📈 Carteira → Rodapé (alertas de sistema e links das planilhas).
-3. Salve o briefing em Markdown em `briefings/<AAAA-MM-DD>.md`, com um bloco final `## Estado` contendo, em linhas `chave: valor`: patrimônio total, total do mês no orçamento, receita e taxa de poupança do mês, títulos das notícias publicadas e IDs das tarefas listadas e títulos dos compromissos do Calendar. É isso que permite comparar no dia seguinte.
+2. Ordem do e-mail: Síntese → ✅ Hoje (agenda) → 🌍💹🧠🇧🇷🇵🇹 Notícias → 💰 Orçamento → 📈 Carteira → Rodapé (alertas de sistema e links das planilhas).
+3. **Gravar a memória (obrigatório, antes do e-mail).** Acrescente uma linha em `Hamdan_OS_Memoria`, aba `Briefings`, com `append_values` a partir de `Briefings!A1`: Data (`AAAA-MM-DD`, como texto) | Formato (Completo ou Curto) | Síntese | Manchetes (separadas por ` | `) | Alertas dados hoje (separados por ` | `) | Patrimônio (número) | Gasto do mês (número) | Receita do mês (número ou vazio) | Poupança do mês (fração, ex.: 0,47, ou vazio) | Compromissos de hoje (separados por ` | `) | Enviado em (`AAAA-MM-DD HH:MM`). No fim de semana, repita os números do último dia útil. Nunca apague nem edite linhas antigas.
 4. Gere o HTML a partir de `templates/email.html` e envie pelo Gmail:
    - Para: raphaelhamdan07@gmail.com
    - Assunto: `☀️ Briefing <dd/mm> · <a manchete mais importante do dia, até 8 palavras>` (no fim de semana: `☕ Briefing curto <dd/mm> · ...`)
    - `htmlBody` com o HTML e `body` com a versão em texto puro.
-5. `git add briefings/ && git commit -m "Briefing <AAAA-MM-DD>" && git push`. Se o push falhar por rede, tente de novo até 4 vezes (2s, 4s, 8s, 16s).
+5. **Cópia no repositório (opcional).** Salve o briefing em `briefings/<AAAA-MM-DD>.md` e tente `git add briefings/ && git commit -m "Briefing <AAAA-MM-DD>" && git push`. Se o push falhar, tente de novo até 4 vezes (2s, 4s, 8s, 16s); se continuar falhando, siga em frente: a memória que vale é a planilha.
 6. Termine com uma linha de resumo (essa linha vira a notificação no celular). Exemplo: `Briefing enviado · 4 tarefas hoje · Comitê pendente · Fed corta 25 bp`.
 
 ## Se algo falhar
 - Uma fonte indisponível não bloqueia o briefing: envie com as outras e diga no rodapé qual faltou e o erro.
+- **Gmail indisponível:** o e-mail não sai. Grave a memória mesmo assim, com "NÃO ENVIADO: <erro>" em Enviado em, e termine com a linha de resumo começando por "FALHA:", para a notificação do celular avisar.
+- **Conector pedindo nova autorização:** termine com "FALHA: reconectar <conector> em claude.ai/customize/connectors".
 - Nunca invente números. Sem dado, escreva "sem dado" e explique.
-- Nunca altere as planilhas Controle_Contas e Investimentos.
+- Nunca altere as planilhas Controle_Contas e Investimentos. A única planilha em que o sistema escreve é `Hamdan_OS_Memoria`.
 - Nunca crie, altere ou apague eventos no Google Calendar: ele é só leitura.

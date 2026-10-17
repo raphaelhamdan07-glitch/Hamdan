@@ -4,8 +4,8 @@
 |---|---|---|---|
 | Orçamento | [Controle_Contas](https://docs.google.com/spreadsheets/d/1iCyD4qZja2Qy8WZO57WtNIfpELBEmipv4OH7fZvxdMQ/edit) | `1iCyD4qZja2Qy8WZO57WtNIfpELBEmipv4OH7fZvxdMQ` | Somente leitura |
 | Investimentos | [Investimentos](https://docs.google.com/spreadsheets/d/1fzQ7p6kzo2sZbMywn93TjHM0fHmyXfUk_1PNW_BgFuQ/edit) | `1fzQ7p6kzo2sZbMywn93TjHM0fHmyXfUk_1PNW_BgFuQ` | Somente leitura |
-| Estudos e tarefas | [Hamdan_OS_Rotina](https://docs.google.com/spreadsheets/d/1H5s0abjd0kdII-4LKTSiCK0bksdeF9K8kUv5zbiqWjE/edit) | `1H5s0abjd0kdII-4LKTSiCK0bksdeF9K8kUv5zbiqWjE` | Leitura e escrita (abas Tarefas e Log) |
-| Agenda e Google Tasks | Google Calendar `raphaelhamdan07@gmail.com` | — | Somente leitura |
+| Memória do sistema | [Hamdan_OS_Memoria](https://docs.google.com/spreadsheets/d/1H5s0abjd0kdII-4LKTSiCK0bksdeF9K8kUv5zbiqWjE/edit) | `1H5s0abjd0kdII-4LKTSiCK0bksdeF9K8kUv5zbiqWjE` | Leitura e escrita (aba Briefings) |
+| Agenda e tarefas | Google Calendar `raphaelhamdan07@gmail.com` | — | Somente leitura |
 | Notícias | Web + e-mails do Google News no Gmail | — | Leitura |
 
 ## Estrutura das planilhas
@@ -30,9 +30,9 @@
 - `Acompanhamento!A4:I300`: ledger. Coluna I = Alerta (deve estar vazia).
 - `Instruções!A1:B30`: rotina mensal do comitê e pendências abertas.
 
-### Hamdan_OS_Rotina
-- `Tarefas!A4:L`: `ID | Tarefa | Frente | Frequência | Dias da semana | Prazo | Prioridade | Status | Feito? | Última conclusão | Sequência (dias) | Observação`. Dados a partir da linha 5.
-- `Log!A1:E`: `Data | ID | Tarefa | Frente | Registrado por`.
+### Hamdan_OS_Memoria
+- `Briefings!A1:K`: `Data | Formato | Síntese | Manchetes | Alertas | Patrimônio | Gasto do mês | Receita do mês | Poupança do mês | Compromissos | Enviado em`. Uma linha por dia, a partir da linha 2. Data em texto `AAAA-MM-DD`.
+- Escrita só pela rotina das 7:00 (append). O dashboard lê a última linha.
 
 ### Google Calendar
 - Tarefas do Google Tasks com data e horário aparecem como eventos do tipo FOCUS_TIME, com `tasks.google.com/task/` na descrição. O Calendar não mostra tarefas sem horário nem o status de concluída.

@@ -19,8 +19,8 @@ O sistema completo de decisão é o **Comitê de Investimentos** em `sistema/com
 - Do dia 1 ao dia 5 de cada mês, ou quando a última revisão (`Parâmetros!B27`) tiver 25 dias ou mais, o briefing abre a seção Carteira com: "Comitê de <mês> pendente." e o checklist da seção 8 do comitê, já com o que o sistema sabe preenchido (mês de referência, pesos-alvo da planilha, data dos preços). O aporte disponível fica em branco, para o Agente 2 perguntar.
 - Para rodar o comitê: abra uma sessão e peça "rodar o comitê de <mês>". A sessão lê `sistema/comite_investimentos.md` e segue A1 → A4.
 
-## Inconsistências entre o comitê e a planilha (para resolver)
-- **Referência de custo de oportunidade:** o comitê usa o Tesouro IPCA+ **2035** (critério 5 do Graham e Entrega A2). A planilha calcula o piso de DY sobre o IPCA+ **2032** (`Parâmetros`, "Piso de DY — ações"). Até decidir, o briefing cita a referência da planilha e diz que é a 2032.
+## Ajustes entre o comitê e a planilha
+- **Referência de custo de oportunidade (decidido em 17/10/2026):** vale o Tesouro **IPCA+ 2032**, o título que a carteira tem e que a planilha usa (`Parâmetros`, "Piso de DY — ações"). Onde o comitê diz IPCA+ 2035 (critério 5 do Graham, seção 4.1 e Entrega A2), leia IPCA+ 2032.
 - **Régua de status:** a aba Alocação marca "CRITICO" e "Subalocado" com limites próprios; o comitê define `CRÍTICO` como < −15 pp. O briefing usa a régua do comitê.
 
 ## Histórico de correções
