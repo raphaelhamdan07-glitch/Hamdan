@@ -5,6 +5,7 @@ Sistema pessoal de bolso. Todo dia às 7:00 (Lisboa), uma tarefa agendada do Cla
 ## Frentes
 | Frente | Fonte | O que o briefing traz |
 |---|---|---|
+| 💳 Contas a pagar | Planilha `Controle_Contas` (Vencimentos) | Aviso antes do vencimento de aluguel, internet, energia, água e academia |
 | ✅ Agenda e tarefas | Google Calendar | Compromissos e Google Tasks do dia |
 | 🌍 Notícias | Web + Google News | Geopolítica, economia, tecnologia, Brasil/Portugal, sem repetir |
 | 💰 Orçamento | Planilha `Controle_Contas` (DataBase + Receitas) | Gasto vs. média de 3 meses, taxa de poupança, alertas |
@@ -14,6 +15,7 @@ Sistema pessoal de bolso. Todo dia às 7:00 (Lisboa), uma tarefa agendada do Cla
 ```
 07:00 Lisboa ── tarefa agendada (sessão nova) ──► lê sistema/ROTINA_DIARIA.md
      │
+     ├─ Contas: o que vence nos próximos dias (aba Vencimentos)
      ├─ Agenda: compromissos e tarefas do dia no Google Calendar
      ├─ Notícias: pesquisa 24h, compara com os 3 últimos briefings, descarta repetidas
      ├─ Orçamento e Carteira: leitura das planilhas (sem escrever nelas)
@@ -24,7 +26,7 @@ Sistema pessoal de bolso. Todo dia às 7:00 (Lisboa), uma tarefa agendada do Cla
 ```
 
 ## Dashboard
-[Hamdan OS no claude.ai](https://claude.ai/artifact/T8312Sfqrh1ysgJevGr3zx). Lê ao vivo as planilhas e o Google Calendar com a sua conta toda vez que você abre: carteira, alocação vs. alvo, plano do mês, gastos e poupança por mês, gastos por pilar, agenda dos próximos 7 dias e o último briefing.
+[Hamdan OS no claude.ai](https://claude.ai/artifact/T8312Sfqrh1ysgJevGr3zx). Lê ao vivo as planilhas e o Google Calendar com a sua conta toda vez que você abre: contas a pagar, carteira, alocação vs. alvo, plano do mês, gastos e poupança por mês, gastos por pilar, agenda dos próximos 7 dias e o último briefing.
 
 ## Comitê mensal
 Roda numa sessão interativa: peça "rodar o comitê de <mês>". Segue `sistema/comite_investimentos.md` (Agentes A1 a A4). O briefing diário só lembra e mostra a aritmética da planilha.

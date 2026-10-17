@@ -24,8 +24,8 @@
 - Vigente desde out.-26: Receita Raphael R$ 9.000 e Receita Carinna R$ 6.000.
 
 ### Controle_Contas · aba `Vencimentos`
-- Cabeçalho na linha 4: `Conta | Descrição na DataBase | Dia de vencimento | Dia do aviso | Valor fixo em € | Forma de pagamento | Ativa | Observação`. Dados a partir da linha 5.
-- Cadastradas em 17/10/2026: Internet (vence 4, aviso 30), Energia/Luz (vence 14, aviso 10), Academia (vence 5, aviso 30), Água (vence 2, aviso 30).
+- Cabeçalho na linha 4: `Conta | Descrição na DataBase | Dia de vencimento | Dia do aviso | Valor fixo em € | Forma de pagamento | Ativa | Observação | Avisar N dias antes`. Dados a partir da linha 5. Coluna I tem prioridade sobre a D.
+- Cadastradas em 17/10/2026: Internet (vence 4, aviso 30), Energia/Luz (vence 14, aviso 10), Academia (vence 5, aviso 30), Água (vence 2, aviso 30), Aluguel (vence 1, aviso 3 dias antes).
 
 ### Investimentos
 - `Posição!A4:I14`: carteira consolidada (papel, classe, qtd, preço, valor, custo, proventos, P&L).

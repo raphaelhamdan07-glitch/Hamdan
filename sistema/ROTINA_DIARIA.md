@@ -31,11 +31,12 @@ Aparece todos os dias, inclusive no fim de semana. A única fonte de tarefas é 
 6. Sem eventos: escreva "Agenda livre".
 
 ## Passo 1b · Contas a vencer (todos os dias, inclusive fim de semana)
-Planilha `Controle_Contas`, aba `Vencimentos!A5:H` (somente leitura). Colunas: Conta | Descrição na DataBase | Dia de vencimento | Dia do aviso | Valor fixo em € | Forma de pagamento | Ativa | Observação.
+Planilha `Controle_Contas`, aba `Vencimentos!A5:I` (somente leitura). Colunas: Conta | Descrição na DataBase | Dia de vencimento | Dia do aviso | Valor fixo em € | Forma de pagamento | Ativa | Observação | Avisar N dias antes.
 
 1. Para cada linha com Ativa = Sim, calcule em Europe/Lisbon:
    - **Próximo vencimento:** o dia de vencimento no mês atual; se já passou, no mês seguinte. Se o mês não tem esse dia, use o último dia do mês.
-   - **Data do aviso:** se o dia do aviso é menor que o dia de vencimento, no mesmo mês do vencimento; se é maior ou igual, no mês anterior ao vencimento. Mesma regra de último dia do mês (dia 30 em fevereiro vira 28 ou 29).
+   - **Data do aviso com "Avisar N dias antes" preenchido:** vencimento menos N dias corridos (ex.: aluguel no dia 1 com N = 3 avisa em 29/10 para 01/11, em 28/11 para 01/12 e em 26/02 para 01/03, ou 27/02 em ano bissexto). Essa coluna tem prioridade sobre "Dia do aviso".
+   - **Data do aviso por dia fixo:** se o dia do aviso é menor que o dia de vencimento, no mesmo mês do vencimento; se é maior ou igual, no mês anterior ao vencimento. Mesma regra de último dia do mês (dia 30 em fevereiro vira 28 ou 29).
    - A conta está **na janela** quando aviso ≤ hoje ≤ vencimento.
 2. **Valor de referência:** o último lançamento da `DataBase` cuja descrição é igual à coluna B (sem diferenciar maiúsculas), com o mês. Se a coluna E tiver valor, mostre também o valor em €. Se o último valor ficou mais de 20% acima da média dos 3 meses anteriores da mesma conta, diga isso numa linha.
 3. **No e-mail**, logo abaixo da síntese, a seção "💳 Contas a pagar" lista só as contas na janela:
