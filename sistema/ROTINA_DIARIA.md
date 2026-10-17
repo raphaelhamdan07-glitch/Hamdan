@@ -45,8 +45,9 @@ Objetivo: o Raphael lê em 3 minutos e sabe o que mudou no mundo desde ontem.
 3. **Seleção:** prefira o que muda decisões ou o cenário (juros, câmbio, conflitos, regulação) ao que só faz barulho. Descarte crime local, celebridades e esporte.
 4. **Não repetir:** compare cada notícia com os 3 briefings anteriores. Se o assunto já saiu, só entra de novo se houver fato novo relevante, com o prefixo `🔄 Atualização:`, e o texto diz só o que mudou.
 5. **Número do dia:** um indicador com contexto (ex.: EUR/BRL, Brent, Selic, S&P 500), com a variação.
-6. Todo item tem um link para a fonte primária ou para um veículo confiável (Reuters, AP, FT, Bloomberg, Valor, Público, Expresso, The Economist).
-7. Escreva no formato de `sistema/brevidade.md`.
+6. **Confira a data de cada fonte.** As buscas misturam matérias de dias diferentes e páginas sem data. Só entra o que for das últimas 48 horas; se o fato for mais antigo mas ainda relevante, diga a data ("em 09/10, ..."). Quando 2 fontes divergirem num número, use a fonte primária (BCB, BCE, Fed) ou omita o número.
+7. Todo item tem um link para a fonte primária ou para um veículo confiável (Reuters, AP, FT, Bloomberg, Valor, Público, Expresso, The Economist).
+8. Escreva no formato de `sistema/brevidade.md`.
 
 ## Passo 3 · Orçamento
 Planilha `Controle_Contas`, aba `DataBase`. Somente leitura.
