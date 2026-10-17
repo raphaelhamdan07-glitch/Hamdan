@@ -13,7 +13,22 @@ IDs e estrutura das planilhas: `sistema/fontes.md`. Regras de escrita: `sistema/
 2. Leia os 3 briefings mais recentes em `briefings/` (`ls briefings/*.md | sort | tail -3`). Eles são a memória do sistema: o que já foi noticiado, os números de ontem, os alertas já dados.
 3. Se já existe `briefings/<hoje>.md`, a rotina já rodou hoje. Pare sem enviar nada.
 
-## Passo 1 · Tarefas (fazer primeiro, porque escreve na planilha)
+## Formato do dia
+- **Segunda a sexta:** briefing completo (todos os passos).
+- **Sábado e domingo:** briefing curto. Rode os Passos 1 e 2 e pule os Passos 3 e 4 (orçamento e carteira não mudam no fim de semana). Notícias: no máximo 1 item por frente, sem Número do dia. A síntese tem 1 ou 2 linhas. Exceção: se houver um alerta novo de orçamento ou carteira que ainda não saiu em nenhum briefing, inclua só esse alerta, numa linha.
+
+## Passo 1 · Agenda e tarefas (fazer primeiro, porque escreve na planilha)
+Tarefas aparecem todos os dias, inclusive no fim de semana. Há duas fontes, e a seção "✅ Hoje" junta as duas.
+
+### 1a · Google Calendar (agenda e Google Tasks)
+1. Liste os eventos de hoje (00:00 a 23:59, Europe/Lisbon) no calendário `raphaelhamdan07@gmail.com` com `list_events`, passando `eventType` = DEFAULT, FOCUS_TIME, FROM_GMAIL e OUT_OF_OFFICE, e `orderBy` = startTime. Liste também o calendário `Feriados no Brasil` (pt-br) para o dia.
+2. Classifique:
+   - **Tarefa do Google Tasks:** a descrição contém `tasks.google.com/task/`. Mostre como tarefa, com o horário.
+   - **Compromisso:** os demais eventos. Mostre horário e título; se tiver link de reunião, inclua o link.
+3. Limitação conhecida: o Calendar só mostra tarefas do Google Tasks que têm data e horário, e não informa se foram concluídas. Tarefa de um dia que já passou não é listada de novo, então não há repetição. Se um título indicar prazo ("até sexta"), mantenha o texto como está.
+4. Se não houver nada no Calendar, escreva "Agenda livre".
+
+### 1b · Planilha Rotina (estudos e hábitos recorrentes)
 Planilha `Hamdan_OS_Rotina`, aba `Tarefas`, linhas 5 em diante.
 
 1. **Registrar conclusões de ontem.** Para cada linha com `Feito?` = TRUE:
@@ -30,6 +45,9 @@ Planilha `Hamdan_OS_Rotina`, aba `Tarefas`, linhas 5 em diante.
    - Única: se não está concluída. Marque ⚠️ se o prazo já passou e 🔴 se vence hoje.
 4. Ordene por Prioridade (Alta, Média, Baixa) e depois por Frente.
 5. Ignore a linha de exemplo (Observação começa com "Linha de exemplo"), mas avise no rodapé enquanto ela existir.
+
+### 1c · Montar a seção "✅ Hoje"
+Ordem: compromissos do Calendar por horário → tarefas do Google Tasks por horário → itens da Rotina por prioridade. Feriado brasileiro do dia vai numa linha no topo.
 
 Escreva na planilha com `update_values` (valores) e `append_values` (Log). Nunca apague linhas.
 
@@ -65,7 +83,11 @@ Planilha `Controle_Contas`, aba `DataBase`. Somente leitura.
    - Linha acima de 2× a média do mesmo item nos últimos 3 meses.
    - Pilar acima de 120% da média de 3 meses.
 5. Não repita um alerta já dado nos últimos 3 briefings, a menos que o valor tenha mudado.
-6. Rodapé fixo enquanto não houver receita na planilha: "Sem receita lançada: taxa de poupança indisponível."
+6. **Receita e poupança.** Leia `Receitas!A5:F`. A receita do mês é a soma das linhas `Recorrente` cujo mês está entre Início e Fim (Fim em branco = vigente) mais as linhas `Extra` cujo Início é o mês. Mostre:
+   - Receita do mês, despesas do mês e saldo (receita − despesas).
+   - Taxa de poupança = saldo ÷ receita. Até o dia 20, marque "parcial", porque as despesas variáveis ainda estão entrando.
+   - Saldo vs. aporte: compare o saldo do mês fechado anterior com o que foi investido nele (compras + aportes no ledger de Investimentos, sem contar resgates da Rota B). Se a diferença passar de R$ 1.000, diga quanto do saldo não foi para investimentos.
+   - Meses sem receita lançada (anteriores a out.-26) ficam fora das médias de poupança.
 
 ## Passo 4 · Investimentos
 Planilha `Investimentos`. Somente leitura. As regras de decisão do comitê estão em `sistema/investimentos.md`.
@@ -87,10 +109,10 @@ Planilha `Investimentos`. Somente leitura. As regras de decisão do comitê est�
 ## Passo 5 · Montar e entregar
 1. **Síntese executiva:** 2 ou 3 linhas no topo, com o que de mais importante aconteceu hoje nas 4 frentes. É a única parte que precisa ser lida.
 2. Ordem do e-mail: Síntese → ✅ Hoje (tarefas) → 🌍💹🧠🇧🇷🇵🇹 Notícias → 💰 Orçamento → 📈 Carteira → Rodapé (alertas de sistema e links das planilhas).
-3. Salve o briefing em Markdown em `briefings/<AAAA-MM-DD>.md`, com um bloco final `## Estado` contendo, em linhas `chave: valor`: patrimônio total, total do mês no orçamento, títulos das notícias publicadas e IDs das tarefas listadas. É isso que permite comparar no dia seguinte.
+3. Salve o briefing em Markdown em `briefings/<AAAA-MM-DD>.md`, com um bloco final `## Estado` contendo, em linhas `chave: valor`: patrimônio total, total do mês no orçamento, receita e taxa de poupança do mês, títulos das notícias publicadas e IDs das tarefas listadas e títulos dos compromissos do Calendar. É isso que permite comparar no dia seguinte.
 4. Gere o HTML a partir de `templates/email.html` e envie pelo Gmail:
    - Para: raphaelhamdan07@gmail.com
-   - Assunto: `☀️ Briefing <dd/mm> · <a manchete mais importante do dia, até 8 palavras>`
+   - Assunto: `☀️ Briefing <dd/mm> · <a manchete mais importante do dia, até 8 palavras>` (no fim de semana: `☕ Briefing curto <dd/mm> · ...`)
    - `htmlBody` com o HTML e `body` com a versão em texto puro.
 5. `git add briefings/ && git commit -m "Briefing <AAAA-MM-DD>" && git push`. Se o push falhar por rede, tente de novo até 4 vezes (2s, 4s, 8s, 16s).
 6. Termine com uma linha de resumo (essa linha vira a notificação no celular). Exemplo: `Briefing enviado · 4 tarefas hoje · Comitê pendente · Fed corta 25 bp`.
@@ -99,3 +121,4 @@ Planilha `Investimentos`. Somente leitura. As regras de decisão do comitê est�
 - Uma fonte indisponível não bloqueia o briefing: envie com as outras e diga no rodapé qual faltou e o erro.
 - Nunca invente números. Sem dado, escreva "sem dado" e explique.
 - Nunca altere as planilhas Controle_Contas e Investimentos.
+- Nunca crie, altere ou apague eventos no Google Calendar: ele é só leitura.
