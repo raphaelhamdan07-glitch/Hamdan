@@ -9,12 +9,14 @@
 
 - Segunda a sexta: briefing completo. Sábado e domingo: briefing curto (agenda e 1 notícia por frente).
 - Do dia 1 ao 5 de cada mês, o briefing lembra o comitê de investimentos.
+- No dia do aviso de cada conta, o e-mail abre com "💳 Contas a pagar" e a notificação do celular diz o que transferir.
 
 ## O que você alimenta (e só isso)
 | Frequência | Onde | O quê |
 |---|---|---|
 | Contínuo | Google Calendar / Google Tasks | Compromissos e tarefas, como já faz. Tarefa do Google Tasks só aparece se tiver data e **horário**. |
 | Mensal | Controle_Contas · DataBase | Despesas do mês. Mês sempre no formato `nov.-26` (minúsculo, ponto, hífen). |
+| Quando mudar | Controle_Contas · Vencimentos | Conta nova, dia de vencimento ou de aviso, valor fixo em €, forma de pagamento. Ativa = Não para desligar o aviso. |
 | Quando mudar | Controle_Contas · Receitas | Salário novo: ponha Fim no mês anterior da linha antiga e crie uma linha nova. Bônus ou extra: linha Tipo = Extra. |
 | Mensal | Investimentos | A rotina da aba Instruções: movimentações, Saldo das caixinhas, preços, PU do Tesouro, macro, Histórico. |
 | Mensal | Sessão no Claude | "Rodar o comitê de <mês>" com o aporte disponível. |
@@ -24,6 +26,7 @@ Tudo o mais é automático: notícias, agenda, cálculos, alertas, memória e da
 ## O que o dashboard mostra e de onde vem
 | Bloco | Fonte | Atualiza quando |
 |---|---|---|
+| Contas a pagar | Controle_Contas · Vencimentos + DataBase | Ao abrir; fica vermelho do dia do aviso até o vencimento |
 | Topo (patrimônio, Renda Fixa, gastos, poupança) | Investimentos + Controle_Contas | Ao abrir, com o que estiver nas planilhas |
 | Agenda dos próximos 7 dias | Google Calendar | Ao abrir |
 | Briefing de hoje | Hamdan_OS_Memoria | Depois que a rotina das 7:00 roda |

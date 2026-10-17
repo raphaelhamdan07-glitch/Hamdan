@@ -16,7 +16,7 @@ IDs e estrutura das planilhas: `sistema/fontes.md`. Regras de escrita: `sistema/
 
 ## Formato do dia
 - **Segunda a sexta:** briefing completo (todos os passos).
-- **Sábado e domingo:** briefing curto. Rode os Passos 1 e 2 e pule os Passos 3 e 4 (orçamento e carteira não mudam no fim de semana). Notícias: no máximo 1 item por frente, sem Número do dia. A síntese tem 1 ou 2 linhas. Exceção: se houver um alerta novo de orçamento ou carteira que ainda não saiu em nenhum briefing, inclua só esse alerta, numa linha.
+- **Sábado e domingo:** briefing curto. Rode os Passos 1, 1b e 2 e pule os Passos 3 e 4 (orçamento e carteira não mudam no fim de semana). Notícias: no máximo 1 item por frente, sem Número do dia. A síntese tem 1 ou 2 linhas. Exceção: se houver um alerta novo de orçamento ou carteira que ainda não saiu em nenhum briefing, inclua só esse alerta, numa linha.
 
 ## Passo 1 · Agenda e tarefas (Google Calendar)
 Aparece todos os dias, inclusive no fim de semana. A única fonte de tarefas é o Calendar: o Raphael organiza a rotina lá (eventos e Google Tasks com horário).
@@ -29,6 +29,24 @@ Aparece todos os dias, inclusive no fim de semana. A única fonte de tarefas é 
 4. **Amanhã cedo:** se houver evento antes das 10:00 de amanhã, acrescente uma linha "Amanhã cedo: <hora> <título>".
 5. Limitação conhecida: o Calendar só mostra tarefas do Google Tasks com data e horário, e não diz se foram concluídas. Como só o dia de hoje é listado, nada se repete.
 6. Sem eventos: escreva "Agenda livre".
+
+## Passo 1b · Contas a vencer (todos os dias, inclusive fim de semana)
+Planilha `Controle_Contas`, aba `Vencimentos!A5:H` (somente leitura). Colunas: Conta | Descrição na DataBase | Dia de vencimento | Dia do aviso | Valor fixo em € | Forma de pagamento | Ativa | Observação.
+
+1. Para cada linha com Ativa = Sim, calcule em Europe/Lisbon:
+   - **Próximo vencimento:** o dia de vencimento no mês atual; se já passou, no mês seguinte. Se o mês não tem esse dia, use o último dia do mês.
+   - **Data do aviso:** se o dia do aviso é menor que o dia de vencimento, no mesmo mês do vencimento; se é maior ou igual, no mês anterior ao vencimento. Mesma regra de último dia do mês (dia 30 em fevereiro vira 28 ou 29).
+   - A conta está **na janela** quando aviso ≤ hoje ≤ vencimento.
+2. **Valor de referência:** o último lançamento da `DataBase` cuja descrição é igual à coluna B (sem diferenciar maiúsculas), com o mês. Se a coluna E tiver valor, mostre também o valor em €. Se o último valor ficou mais de 20% acima da média dos 3 meses anteriores da mesma conta, diga isso numa linha.
+3. **No e-mail**, logo abaixo da síntese, a seção "💳 Contas a pagar" lista só as contas na janela:
+   - No dia do aviso: `🔴 Transferir hoje · <Conta> · vence <dd/mm> · ref. R$ <valor> (<mês>)`.
+   - Nos dias seguintes até o vencimento: `🟡 <Conta> · vence <dd/mm> (em N dias) · ref. R$ <valor>`.
+   - No dia do vencimento: `🔴 Vence hoje · <Conta>`.
+   - Com 2 ou mais contas no mesmo dia de aviso, some os valores de referência: "Total para transferir hoje: R$ X".
+   - Forma de pagamento diferente de Transferência: mostre-a no lugar de "Transferir".
+4. Se alguma conta está na janela, a síntese começa por ela ("Hoje: transferir Internet, Academia e Água, ~R$ X.") e a linha final de resumo (notificação) também.
+5. Sem contas na janela, a seção não aparece.
+6. Na memória (Passo 5), inclua as contas listadas na coluna Alertas, com o prefixo `Conta:`.
 
 ## Passo 2 · Notícias
 Objetivo: o Raphael lê em 3 minutos e sabe o que mudou no mundo desde ontem.
@@ -87,7 +105,7 @@ Planilha `Investimentos`. Somente leitura. Siga `sistema/investimentos.md`: ele 
 
 ## Passo 5 · Montar e entregar
 1. **Síntese executiva:** 2 ou 3 linhas no topo, com o que de mais importante aconteceu hoje nas 4 frentes. É a única parte que precisa ser lida.
-2. Ordem do e-mail: Síntese → ✅ Hoje (agenda) → 🌍💹🧠🇧🇷🇵🇹 Notícias → 💰 Orçamento → 📈 Carteira → Rodapé (alertas de sistema e links das planilhas).
+2. Ordem do e-mail: Síntese → 💳 Contas a pagar (se houver) → ✅ Hoje (agenda) → 🌍💹🧠🇧🇷🇵🇹 Notícias → 💰 Orçamento → 📈 Carteira → Rodapé (alertas de sistema e links das planilhas).
 3. **Gravar a memória (obrigatório, antes do e-mail).** Acrescente uma linha em `Hamdan_OS_Memoria`, aba `Briefings`, com `append_values` a partir de `Briefings!A1`: Data (`AAAA-MM-DD`, como texto) | Formato (Completo ou Curto) | Síntese | Manchetes (separadas por ` | `) | Alertas dados hoje (separados por ` | `) | Patrimônio (número) | Gasto do mês (número) | Receita do mês (número ou vazio) | Poupança do mês (fração, ex.: 0,47, ou vazio) | Compromissos de hoje (separados por ` | `) | Enviado em (`AAAA-MM-DD HH:MM`). No fim de semana, repita os números do último dia útil. Nunca apague nem edite linhas antigas.
 4. Gere o HTML a partir de `templates/email.html` e envie pelo Gmail:
    - Para: raphaelhamdan07@gmail.com

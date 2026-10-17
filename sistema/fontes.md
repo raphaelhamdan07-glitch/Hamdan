@@ -23,6 +23,10 @@
 - Mês no formato da DataBase (`out.-26`). `H5` = total recorrente vigente.
 - Vigente desde out.-26: Receita Raphael R$ 9.000 e Receita Carinna R$ 6.000.
 
+### Controle_Contas · aba `Vencimentos`
+- Cabeçalho na linha 4: `Conta | Descrição na DataBase | Dia de vencimento | Dia do aviso | Valor fixo em € | Forma de pagamento | Ativa | Observação`. Dados a partir da linha 5.
+- Cadastradas em 17/10/2026: Internet (vence 4, aviso 30), Energia/Luz (vence 14, aviso 10), Academia (vence 5, aviso 30), Água (vence 2, aviso 30).
+
 ### Investimentos
 - `Posição!A4:I14`: carteira consolidada (papel, classe, qtd, preço, valor, custo, proventos, P&L).
 - `Alocação!A4:F9`: peso real vs. alvo por classe e status. `Alocação!A11:C22`: matemática da Rota B.
