@@ -25,7 +25,8 @@
 
 ### Controle_Contas · aba `Vencimentos`
 - Cabeçalho na linha 4: `Conta | Descrição na DataBase | Dia de vencimento | Dia do aviso | Valor fixo em € | Forma de pagamento | Ativa | Observação | Avisar N dias antes`. Dados a partir da linha 5. Coluna I tem prioridade sobre a D.
-- Cadastradas em 17/10/2026: Internet (vence 4, aviso 30), Energia/Luz (vence 14, aviso 10), Academia (vence 5, aviso 30), Água (vence 2, aviso 30), Aluguel (vence 1, aviso 3 dias antes).
+- Cadastradas em 17/10/2026: Internet (vence 4, aviso 30), Energia/Luz (vence 14, aviso 10), Academia (vence 5, aviso 30), Água (vence 2, aviso 30), Aluguel (vence 1, aviso 3 dias antes), Aporte do mês (vence 30, aviso no próprio dia; valor de `Alocação`, "Capital a mobilizar no mês").
+- Descrição com prefixo `Investimentos:` = valor lido da aba Alocação da Investimentos, não da DataBase.
 
 ### Investimentos
 - `Posição!A4:I14`: carteira consolidada (papel, classe, qtd, preço, valor, custo, proventos, P&L).

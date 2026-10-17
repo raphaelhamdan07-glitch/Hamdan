@@ -5,7 +5,7 @@ Sistema pessoal de bolso. Todo dia às 7:00 (Lisboa), uma tarefa agendada do Cla
 ## Frentes
 | Frente | Fonte | O que o briefing traz |
 |---|---|---|
-| 💳 Contas a pagar | Planilha `Controle_Contas` (Vencimentos) | Aviso antes do vencimento de aluguel, internet, energia, água e academia |
+| 💳 Contas a pagar | Planilha `Controle_Contas` (Vencimentos) | Aviso antes do vencimento de aluguel, internet, energia, água, academia e do aporte do mês |
 | ✅ Agenda e tarefas | Google Calendar | Compromissos e Google Tasks do dia |
 | 🌍 Notícias | Web + Google News | Geopolítica, economia, tecnologia, Brasil/Portugal, sem repetir |
 | 💰 Orçamento | Planilha `Controle_Contas` (DataBase + Receitas) | Gasto vs. média de 3 meses, taxa de poupança, alertas |
